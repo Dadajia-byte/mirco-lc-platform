@@ -9,10 +9,15 @@
   },
   "lint-staged": {
     "apps/mainframe/**/*.{js,jsx,ts,tsx}": [
-      "cd apps/mainframe && pnpm run lint:fix"
+      "cd apps/mainframe && pnpm run lint:fix",
+      "prettier --write"
     ],
-    "libs/**/*.{js,jsx,ts,tsx}": [
-      "cd libs && pnpm lint:fix",
+    "apps/renderer/**/*.{vue,js,ts}": [
+      "cd apps/renderer && pnpm run lint:fix",
+      "prettier --write"
+    ],
+    "libs/**/*.{js,ts}": [
+      "eslint --fix",
       "prettier --write"
     ],
     "*.{json,md,css,scss,less}": [
