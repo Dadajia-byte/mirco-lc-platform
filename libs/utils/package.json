@@ -1,0 +1,27 @@
+{
+  "name": "@mirco-lc-platform/utils",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "通用工具函数库",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "../../node_modules/.bin/tsc && vite build",
+    "type-check": "../../node_modules/.bin/tsc --noEmit",
+    "lint": "eslint . --ext .js,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.ts,.tsx --fix"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {
+  }
+}
