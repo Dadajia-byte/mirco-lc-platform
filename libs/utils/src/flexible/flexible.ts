@@ -1,4 +1,3 @@
-// libs/utils/src/utils/flexible.ts
 export interface FlexibleOptions {
   baseCount?: number;  // 默认 24 等份
   designWidth?: number; // 设计稿宽度，默认用于计算
