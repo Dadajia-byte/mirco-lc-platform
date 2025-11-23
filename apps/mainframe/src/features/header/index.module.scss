@@ -1,0 +1,147 @@
+.header {
+  position: relative;
+  width: 100%;
+  height: 3.125rem;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 0 .3125rem .125rem rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  .logo {
+    display: flex;
+    margin-left: .9375rem;
+    height: 2.25rem;
+    line-height: 2.25rem;
+    width: 22%;
+    &_icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 500;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      background-color: $primary-color;
+      width: 2.125rem;
+      height: 2.125rem;
+      border-radius: 20%;
+    }
+    &_text {
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin-left: 0.5rem;
+    }
+  }
+
+  .menu {
+    position: relative;
+    width: 49%;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &_underline {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: .125rem;
+      border-radius: .0625rem;
+      background-color: $primary-color;
+      transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    &_item {
+      display: flex;
+      height: 95%;
+      padding: 0 1rem;
+      margin: 0 .25rem;
+      align-items: center;
+      justify-content: center;
+      font-size: .75rem;
+      color: #919398;
+      cursor: pointer;
+      border-bottom: .0938rem solid transparent;
+      transition: all .1s ease;
+      &:hover {
+        color: black;
+      }
+      &_active {
+        color: black;
+      }
+    }
+  }
+  .operation {
+    width: 21%;
+    display: flex;
+    align-items: center;
+    &_switch {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 4rem;
+      height: 1.2rem;
+      padding: .125rem;
+      margin-right: .3125rem;
+      border-radius: .5rem;
+      background-color: #f0f0f0;
+      font-size: .625rem;
+      cursor: pointer;
+      &_slider {
+        position: absolute;
+        top: 0.125rem;
+        left: 0.125rem;
+        width: calc(50% - 0.125rem);
+        height: calc(100% - 0.25rem);
+        background-color: #fff;
+        border-radius: .375rem;
+        transition: transform 0.3s ease;
+        z-index: 1;
+      }
+      &_item {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        transition: color .3s ease;
+        position: relative;
+        z-index: 2;
+        &_active {
+          color: black;
+        }
+      }
+      
+    }
+    &_icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.6rem;
+      height: 1.6rem;
+      cursor: pointer;
+      border-radius: .375rem;
+      margin-right: .3125rem;
+      i.iconfont {
+        color: black;
+      }
+      &:hover {
+        background-color: #f0f0f0;
+      }
+    }
+  }
+  .user {
+    display: flex;
+    justify-content: center;
+    .avator {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 50%;
+      cursor: pointer;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+

@@ -1,5 +1,5 @@
 {
-  "name": "@mirco-lc-platform/utils",
+  "name": "@mlc/utils",
   "version": "1.0.0",
   "type": "module",
   "description": "通用工具函数库",

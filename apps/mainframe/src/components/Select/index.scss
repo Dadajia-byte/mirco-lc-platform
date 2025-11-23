@@ -1,0 +1,98 @@
+.custom-select {
+  position: relative;
+  display: inline-block;
+  min-width: 5.625rem;
+
+  .select-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .25rem .625rem;
+    border: .0625rem solid #e1e6ec;
+    border-radius: .3125rem;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all .3s ease;
+    font-size: .625rem;
+
+    &:hover {
+      border-color: $secondary-color;
+    }
+
+    &.open {
+      border-color: $primary-color;
+      box-shadow: 0 .0625rem .125rem rgba(24, 144, 255, 0.2);
+    }
+
+    .select-text {
+      flex: 1;
+      color: #333;
+    }
+
+    .select-arrow {
+      margin-left: .25rem;
+      font-size: .625rem;
+      color: #666;
+      transition: transform .3s ease;
+      
+      &.up {
+        transform: rotate(180deg);
+      }
+    }
+
+    &.open .select-arrow:not(.up) {
+      transform: rotate(180deg);
+    }
+  }
+
+  .select-dropdown {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: .0625rem solid #e1e6ec;
+    border-radius: .3125rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+
+    &.down {
+      top: 100%;
+      margin-top: .3125rem;
+    }
+
+    &.up {
+      bottom: 100%;
+      margin-bottom: .3125rem;
+    }
+
+    .select-option {
+      margin: .125rem .25rem;
+      padding: .375rem .5rem;
+      cursor: pointer;
+      font-size: .625rem;
+      color: #333;
+      transition: background-color .2s ease;
+      border-radius: .25rem;
+
+      &:hover {
+        background-color: #f1f0fe;
+      }
+
+      &.selected {
+        background-color: $secondary-color;
+        color: $primary-color;
+      }
+
+      &:first-child {
+        margin-top: .3125rem;
+      }
+
+      &:last-child {
+        margin-bottom: .3125rem;
+      }
+    }
+
+  }
+}

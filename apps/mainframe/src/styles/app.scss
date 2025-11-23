@@ -1,0 +1,11 @@
+
+.app {
+  height: 100vh;
+  .main-content {
+    display: flex;
+    position: relative;
+    height: calc(100vh - 5.625rem);
+    background-color: #f8f9fa;
+
+  }
+}

@@ -2,33 +2,38 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react()],
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "@/styles/variables.scss";`,
-        charset: false,
+export default defineConfig(({ mode }) => {
+  const isDev = mode === 'development';
+  
+  return {
+    plugins: [react()],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // 使用 @use 替代 @import
+          additionalData: `@use "@/styles/variables.scss" as *;`,
+          api: 'modern-compiler', // 使用新的 Sass API
+          silenceDeprecations: ['legacy-js-api', 'import'], // 临时静默弃用警告（可选）
+        }
       }
-    }
-  },
-  server: {
-    port: 3000,
-    host: true,
-    open: true
-  },
-  build: {
-    outDir: 'dist',
-    sourcemap: true
-  },
-  resolve: {
-    alias: {
-      '@': '/src',
-      // 考虑到开发体验，开发环境下使用源码引用，生产环境下使用打包产物可能会更好？不行就注释掉这段
-      "@mirco-lc-platform/utils": process.env.NODE_ENV === 'development'
-        ? path.resolve(__dirname, '../../libs/utils/src')
-        : '@mirco-lc-platform/utils'
+    },
+    server: {
+      port: 3000,
+      host: true,
+      open: true
+    },
+    build: {
+      outDir: 'dist',
+      sourcemap: true
+    },
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src'),
+        // 开发环境使用源码，生产环境使用打包产物
+        "@mlc/utils": isDev
+          ? path.resolve(__dirname, '../../libs/utils/src')
+          : '@mlc/utils' // 生产环境通过 workspace 解析到 dist/index.js
+      }
     }
   }
 })

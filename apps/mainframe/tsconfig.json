@@ -4,9 +4,10 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@mlc/utils": ["../../libs/utils/src"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "src/types/**/*.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

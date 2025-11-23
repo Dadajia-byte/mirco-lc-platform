@@ -24,7 +24,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@mirco-lc-platform/*": ["libs/*/src","apps/*/src"]
+      "@mlc/utils": ["libs/utils/src"],
     }
   },
   "include": [],

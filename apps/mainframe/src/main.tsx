@@ -2,13 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.tsx'
-import { initFlexible } from '@mirco-lc-platform/utils'
-import './styles/index.scss'
+import { initFlexible } from '@mlc/utils'
+import './styles/normalize.scss'
+import './assets/icons/iconfont/iconfont.css'
 
 initFlexible({
-  designWidth: 375,
-  maxWidth: 768,
-  baseCount: 24,
+  designWidth: 1920,
+  maxWidth: 1920,
+  baseCount: 16,
 })
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
