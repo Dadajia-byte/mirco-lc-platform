@@ -34,6 +34,8 @@ const Editor = () => {
     setViewport,
     containerRef,
     viewportProps,
+    toolMode,
+    setToolMode,
   } = useCanvasViewport({
     initialScale: viewportConfig.initialScale,
     minScale: viewportConfig.minScale,
@@ -147,6 +149,7 @@ const Editor = () => {
             screenToCanvas={screenToCanvas}
             components={canvas.components}
             canvasContainerRef={canvasContainerRef}
+            toolMode={toolMode}
           />
         </div>
       </CanvasViewport>
@@ -161,6 +164,8 @@ const Editor = () => {
             zoomToFit: () => zoomToFit(canvas.width, canvas.height, containerRef.current?.clientWidth || 0, containerRef.current?.clientHeight || 0),
           }
         }
+        toolMode={toolMode}
+        toolModeChange={setToolMode}
         onScaleChange={(scale: number) => setViewport({ scale })}
       />
     </div>

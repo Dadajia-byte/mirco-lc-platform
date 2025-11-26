@@ -1,5 +1,6 @@
 import { useEffect, useCallback, useRef, useState } from 'react';
 import { isFunction } from '@mlc/utils';
+import { ToolMode } from '@/types/schema';
 
 export interface ViewportState {
   x: number;
@@ -13,11 +14,14 @@ export interface UseCanvasViewportOptions {
   minScale?: number;
   scaleStep?: number;
   onViewportChange?: (state: ViewportState) => void;
+  initialToolMode?: ToolMode;
 }
 
 export interface UseCanvasViewportReturn {
   viewport: ViewportState;
   isDragging: boolean;
+  toolMode: ToolMode;
+  setToolMode: (toolMode: ToolMode) => void;
   setViewport: (updater: Partial<ViewportState> | ((prev: ViewportState) => ViewportState)) => void;
   resetViewport: () => void;
   zoomIn: () => void;
@@ -63,6 +67,7 @@ export default function useCanvasViewport(
     maxScale = DEFAULT_OPTIONS.maxScale,
     scaleStep = DEFAULT_OPTIONS.scaleStep,
     onViewportChange,
+    initialToolMode = ToolMode.MOUSE,
   } = options;
 
   const [viewport, setViewport] = useState<ViewportState>({
@@ -70,6 +75,8 @@ export default function useCanvasViewport(
     y: 0,
     scale: initialScale,
   });
+
+  const [toolMode, setToolMode] = useState<ToolMode>(initialToolMode);
 
   // 使用 ref 存储最新的 viewport，避免事件监听器频繁重新绑定
   const viewportRef = useRef<ViewportState>(viewport);
@@ -272,6 +279,8 @@ export default function useCanvasViewport(
   return {
     viewport,
     isDragging,
+    toolMode,
+    setToolMode,
     setViewport: setViewportState,
     resetViewport,
     zoomIn,

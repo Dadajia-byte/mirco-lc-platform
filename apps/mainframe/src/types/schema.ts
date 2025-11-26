@@ -47,3 +47,10 @@ export interface CanvasSchema {
     // ...其他配置 todo
   }
 }
+
+export enum ToolMode {
+  /** 鼠标模式 - 可以框选组件、选择组件等 */
+  MOUSE = 'mouse',
+  /** 抓手模式 - 只能拖拽画布 */
+  HAND = 'hand',
+}

@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { ComponentSchema } from '@/types/schema';
+import { ComponentSchema, ToolMode } from '@/types/schema';
 import './index.scss';
 
 export interface SelectionBox {
@@ -16,15 +16,15 @@ export interface CanvasSelectionProps {
   components: ComponentSchema[];
   /** 画布容器引用，用于判断点击是否在画布上 */
   canvasContainerRef: React.RefObject<HTMLElement>;
-  /** 是否启用框选，默认 true */
-  enabled?: boolean;
+  /** 工具模式 */
+  toolMode: ToolMode;
 }
 
 const CanvasSelection: React.FC<CanvasSelectionProps> = ({
   screenToCanvas,
   components,
   canvasContainerRef,
-  enabled = true,
+  toolMode,
 }) => {
   const [isSelecting, setIsSelecting] = useState(false);
   const [selectionStart, setSelectionStart] = useState<{ x: number; y: number } | null>(null);
@@ -34,7 +34,7 @@ const CanvasSelection: React.FC<CanvasSelectionProps> = ({
   // 处理鼠标按下
   const handleMouseDown = useCallback((e: MouseEvent) => {
     
-    if (!container || !enabled) return;
+    if (!container || toolMode !== ToolMode.MOUSE) return;
 
     // 只在点击画布空白区域时启动框选
     if (e.target !== container && (e.target as HTMLElement).closest('.canvas') !== container) {
@@ -52,7 +52,7 @@ const CanvasSelection: React.FC<CanvasSelectionProps> = ({
 
     e.preventDefault();
     e.stopPropagation();
-  }, [enabled, screenToCanvas, canvasContainerRef]);
+  }, [toolMode, screenToCanvas, canvasContainerRef]);
 
   // 处理鼠标移动
   const handleMouseMove = useCallback(
@@ -97,7 +97,7 @@ const CanvasSelection: React.FC<CanvasSelectionProps> = ({
 
   // 绑定事件监听器
   useEffect(() => {
-    if (!enabled || !container) return;
+    if (toolMode !== ToolMode.MOUSE || !container) return;
 
     container.addEventListener('mousedown', handleMouseDown);
     container.addEventListener('mousemove', handleMouseMove);
@@ -108,7 +108,7 @@ const CanvasSelection: React.FC<CanvasSelectionProps> = ({
       container.removeEventListener('mousemove', handleMouseMove);
       container.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [enabled, canvasContainerRef, handleMouseDown, handleMouseMove, handleMouseUp]);
+  }, [toolMode, canvasContainerRef, handleMouseDown, handleMouseMove, handleMouseUp]);
 
   // 如果没有选框，不渲染
   if (!selectionBox) return null;

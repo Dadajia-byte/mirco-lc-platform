@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './index.scss';
 import { InputNumber } from 'antd';
+import { ToolMode } from '@/types/schema';
 
 interface ToolbarProps {
   scale: number;
@@ -12,11 +13,13 @@ interface ToolbarProps {
     zoomOut: () => void;
     zoomToFit: () => void;
   }
+  toolMode: ToolMode;
+  toolModeChange: (toolMode: ToolMode) => void;
 }
 
-const Toolbar = ({ scale, minScale, maxScale, zoom, onScaleChange }: ToolbarProps) => {
+const Toolbar = ({ scale, minScale, maxScale, zoom, onScaleChange, toolMode, toolModeChange }: ToolbarProps) => {
   const [showMore, setShowMore] = useState(true);
-  const [activeItem, setActiveItem] = useState<string | null>(null);
+  const [activeItem, setActiveItem] = useState<ToolMode>(toolMode);
   const [currentScale, setCurrentScale] = useState(scale);
   const { zoomIn, zoomOut, zoomToFit } = zoom;
 
@@ -39,11 +42,21 @@ const Toolbar = ({ scale, minScale, maxScale, zoom, onScaleChange }: ToolbarProp
 
   const [toolbarItems] = useState([
     {
+      icon: 'icon-shouhuajiantou',
+      key: 'hand',
+      tooltip: '抓手',
+      onClick: () => {
+        setActiveItem('hand');
+        toolModeChange(ToolMode.HAND);
+      },
+    },
+    {
       icon: 'icon-shubiaojiantou',
       key: 'mouse',
       tooltip: '鼠标',
       onClick: () => {
         setActiveItem('mouse');
+        toolModeChange(ToolMode.MOUSE);
       },
     },
     {
