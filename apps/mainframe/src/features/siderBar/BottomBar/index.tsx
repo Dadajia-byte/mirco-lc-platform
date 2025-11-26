@@ -1,4 +1,4 @@
-import './bottomBar.scss';
+import './index.scss';
 import { useState } from 'react';
 import Select from '@/components/Select';
 const linkStatusList = [

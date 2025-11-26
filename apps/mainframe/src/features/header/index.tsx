@@ -1,7 +1,6 @@
 import styles from './index.module.scss';
 import avator from '../../assets/temp/avator.png';
-import Menu from './components/Menu';
-import Operation from './components/Operation.tsx/operation';
+import { Menu, Operation } from './components';
 
 const Header = () => {
   return (

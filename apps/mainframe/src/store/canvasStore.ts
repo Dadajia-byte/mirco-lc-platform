@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { CanvasSchema, ComponentSchema } from '@/types/schema';
 import { deepClone } from '@mlc/utils';
+import { DEFAULT_CANVAS_SCHEMA } from '@/constants';
 
 interface CanvasStore {
   canvas: CanvasSchema | null;
@@ -8,24 +9,38 @@ interface CanvasStore {
   history: CanvasSchema[]; // 历史记录
   historyIndex: number; // 历史记录索引
 
-   // 设置画布
+  /**
+   * 设置画布
+   */
   setCanvas: (canvas: CanvasSchema) => void;
-   // 添加组件
+  /**
+   * 添加组件
+   */
   addComponent: (component: ComponentSchema, parentId?: string) => void;
-   // 更新组件
+  /**
+   * 更新组件
+   */
   updateComponent: (id: string, updates: Partial<ComponentSchema>) => void;
-   // 删除组件
+  /**
+   * 删除组件
+   */
   deleteComponent: (id: string) => void;
-   // 选中的组件
+  /**
+   * 选中组件
+   */
   selectComponent: (id: string | null) => void;
-   // 撤销
+  /**
+   * 撤销
+   */
   undo: () => void;
-   // 重做
+  /**
+   * 重做
+   */
   redo: () => void;
 }
 
 const useCanvasStore = create<CanvasStore>((set,get) => ({
-  canvas: null,
+  canvas: DEFAULT_CANVAS_SCHEMA,
   selectedComponents: [],
   history: [],
   historyIndex: -1, 
@@ -144,3 +159,5 @@ const useCanvasStore = create<CanvasStore>((set,get) => ({
     }
   },
 }));
+
+export default useCanvasStore;

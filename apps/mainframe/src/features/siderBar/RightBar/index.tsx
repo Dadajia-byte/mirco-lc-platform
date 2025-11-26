@@ -1,4 +1,4 @@
-import './rightBar.scss';
+import './index.scss';
 const RightBar = () => {
   return (
     <div className="right-bar">

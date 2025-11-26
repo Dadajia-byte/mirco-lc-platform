@@ -4,13 +4,18 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App.tsx'
 import { initFlexible } from '@mlc/utils'
 import './styles/normalize.scss'
-import './assets/icons/iconfont/iconfont.css'
+import { initMaterials } from './registry/index'
+import 'antd/dist/antd.css'; // 引入 Ant Design 样式(后续再引入优化)
+import './assets/icons/font_73sqza6uhvv/iconfont.css'
 
 initFlexible({
   designWidth: 1920,
   maxWidth: 1920,
   baseCount: 16,
-})
+});
+
+// 初始化物料
+initMaterials();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="173px" height="122px" viewBox="0 0 173 122" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Card</title>
+    <g id="组件骨架图更新_202311" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="🎉-5.0-新版---白" transform="translate(-1261.000000, -3003.000000)" fill-rule="nonzero">
+            <g id="Card" transform="translate(1262.000000, 3004.000000)">
+                <rect id="矩形" stroke="#F0F0F0" fill="#FFFFFF" x="0" y="0" width="171" height="120" rx="4"></rect>
+                <polygon id="Rectangle-10" fill-opacity="0.09" fill="#000000" points="0 38.8235294 170.823529 38.8235294 170.823529 39.5294118 0 39.5294118"></polygon>
+                <rect id="矩形复制-81" fill="#F5F5F5" x="16" y="81" width="76" height="6"></rect>
+                <rect id="矩形复制-143" fill="#F5F5F5" x="16" y="67" width="139" height="6"></rect>
+                <rect id="矩形复制-144" fill="#F5F5F5" x="16" y="53" width="139" height="6"></rect>
+                <g id="编组" transform="translate(17.000000, 15.000000)" fill="#000000" fill-opacity="0.88">
+                    <rect id="矩形" x="0" y="0" width="1" height="10"></rect>
+                    <rect id="矩形备份" x="3" y="0" width="1" height="10"></rect>
+                    <rect id="矩形备份-2" x="6" y="0" width="1" height="10"></rect>
+                    <rect id="矩形备份-3" x="9" y="0" width="1" height="10"></rect>
+                    <rect id="矩形备份-4" x="12" y="0" width="1" height="10"></rect>
+                    <rect id="矩形备份-5" x="15" y="0" width="1" height="10"></rect>
+                    <rect id="矩形备份-6" x="18" y="0" width="1" height="10"></rect>
+                    <rect id="矩形备份-7" x="21" y="0" width="1" height="10"></rect>
+                    <rect id="矩形备份-8" x="24" y="0" width="1" height="10"></rect>
+                    <rect id="矩形备份-9" x="27" y="0" width="1" height="10"></rect>
+                    <rect id="矩形备份-10" x="30" y="0" width="1" height="10"></rect>
+                    <rect id="矩形备份-10备份" x="36" y="0" width="1" height="10"></rect>
+                    <rect id="矩形备份-11" x="33" y="0" width="1" height="10"></rect>
+                    <rect id="矩形备份-11备份-3" x="39" y="0" width="1" height="10"></rect>
+                </g>
+                <rect id="矩形备份" fill="#1677FF" x="132" y="15" width="23" height="10" rx="3"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

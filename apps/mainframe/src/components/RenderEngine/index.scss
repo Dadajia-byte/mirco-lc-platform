@@ -1,0 +1,25 @@
+@use "@/styles/variables.scss" as *;
+
+.component-wrapper {
+  position: relative;
+  transition: outline 0.2s ease;
+
+  &.selected {
+    outline: 2px solid #1890ff !important;
+    outline-offset: 2px;
+  }
+
+  &.locked {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.component-error {
+  padding: 1rem;
+  background-color: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 4px;
+  color: #856404;
+  font-size: 12px;
+}

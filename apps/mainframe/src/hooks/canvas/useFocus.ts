@@ -1,3 +1,5 @@
-export const useFocus = () => {
+const useFocus = () => {
   
 }
+
+export default useFocus;

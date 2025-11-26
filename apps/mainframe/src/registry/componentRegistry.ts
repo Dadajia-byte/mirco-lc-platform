@@ -1,12 +1,13 @@
 import { ComponentType } from "react";
 export type ComponentLibrary = 'antd' | 'element-plus' | 'custom';
-
+export type ComponentFramework = 'react' | 'vue';
 
 // 组件元数据
 export interface ComponentMeta {
   name: string; // 组件名称
   title: string; // 组件标题(显示在组件库中的名称)
   library: ComponentLibrary; // 所属组件库
+  framework: ComponentFramework; // 组件框架
   icon?: string; // 组件图标
   category: string; // 组件分类
   description?: string; // 组件描述
@@ -32,6 +33,7 @@ export interface ComponentLibararyConfig {
   version?: string;
   icon?: string;
   enabled?: boolean;
+  framework?: ComponentFramework; // 组件库框架（为未来拓展做预留）
   components: Map<string, ComponentRegistryItem>;
 }
 

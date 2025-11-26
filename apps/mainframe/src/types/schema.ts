@@ -1,6 +1,8 @@
+import { ComponentLibrary } from "@/registry";
 export interface ComponentSchema {
   id: string; // 组件唯一ID
   type: string; // 组件类型(对应组件库中的组件名)
+  library: ComponentLibrary; // 组件库
   props: Record<string, any>; // 组件属性
   children: ComponentSchema[]; // 子组件
   parentId?: string; // 父组件ID
@@ -14,6 +16,7 @@ export interface ComponentSchema {
     // ...其他样式 todo
   };
   editor?: { // 编辑相关配置
+    selected?: boolean; // 是否选中
     locked?: boolean; // 是否锁定
     visible?: boolean; // 是否可见
     // ...其他编辑相关配置 todo
